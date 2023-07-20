@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=Victor+Mono&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-dark: #f6e71d;
+  --primary-light: #f5d10d;
+  --secondary-dark: #020202;
+  --secondary-light: #181818;
+}
+
+* {
+  background-color: var(--secondary-light);
+}
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
