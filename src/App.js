@@ -6,6 +6,7 @@ import Pagenotfound from "./components/Pagenotfound";
 import CreatePost from "./components/CreatePost";
 import Userprofile from "./components/Userprofile";
 import Productedroute from "./routes/Productedroute";
+import Postdetails from "./components/Postdetails";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
               </Productedroute>
             }
           />
+          <Route path="/post/:id" element={<Postdetails />} />
           <Route path="*" element={<Pagenotfound />} />
         </Routes>
       </Router>
