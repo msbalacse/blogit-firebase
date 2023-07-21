@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { auth, provider } from "../firebase/config";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { AiOutlineGoogle, AiOutlinePlus } from "react-icons/ai";
 
 const Navbar = () => {
   const navigation = useNavigate();
+  const location = useLocation();
   const [isAuth, setIsAuth] = useState(
     JSON.parse(localStorage.getItem("isAuth")) || false
   );
@@ -25,8 +26,14 @@ const Navbar = () => {
     navigation("/");
   }
 
+  const PathMathRoute = (route) => {
+    if (route === location.pathname) {
+      return true;
+    }
+  };
+
   return (
-    <nav className="flex flex-row items-center justify-between w-full p-4 font-Victor">
+    <nav className="flex flex-row flex-wrap items-center justify-between w-full gap-4 p-4 font-Victor">
       <div className="logo">
         <h1 className="text-xl font-bold text-primary-dark">
           <NavLink to="/">
@@ -36,14 +43,29 @@ const Navbar = () => {
         </h1>
       </div>
       <div className="flex items-center gap-2 text-sm text-white sm:gap-4">
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={`${PathMathRoute("/") && "border-b-2 border-white"}`}
+          to="/"
+        >
+          Home
+        </NavLink>
         {isAuth ? (
           <>
-            <NavLink className="flex items-center gap-1" to="/create-post">
+            <NavLink
+              className={`flex items-center gap-1 px-2 ${
+                PathMathRoute("/create-post") && "border-b-2 border-white"
+              }`}
+              to="/create-post"
+            >
               <AiOutlinePlus />
               <span>New</span>
             </NavLink>
-            <NavLink to="/user-profile">
+            <NavLink
+              className={`${
+                PathMathRoute("/user-profile") && "border-b-2 border-white"
+              }`}
+              to="/user-profile"
+            >
               {/* <img
                 className="rounded-full w-[30px]"
                 src={auth.currentUser.photoURL}
