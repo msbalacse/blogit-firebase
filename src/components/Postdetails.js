@@ -12,7 +12,6 @@ const Postdetails = () => {
     async function getPosts() {
       const data = await getDocs(PostRef.current);
       setPost(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     }
     getPosts();
   }, [PostRef]);
@@ -20,10 +19,6 @@ const Postdetails = () => {
   return (
     <div>
       {post.map((data) => {
-        if (data.id === id) {
-          console.log(data);
-        }
-
         return (
           <div key={data.id}>
             {data.id === id ? <SinglePost data={data} /> : null}
@@ -42,11 +37,11 @@ const SinglePost = ({ data }) => {
   const { title, description, author, tag, date } = data;
   return (
     <div className="p-4">
-      <div className="p-2 text-4xl font-extrabold bg-white border-l-8 border-primary-dark">
+      <div className="p-2 text-2xl font-extrabold bg-white border-l-8 border-primary-dark">
         <h1 className="bg-white">{title}</h1>
       </div>
-      <p className="p-4 text-lg text-left text-white">{description}</p>
-      <div className="flex gap-2">
+      <p className="p-4 text-base text-left text-white">{description}</p>
+      <div className="flex gap-2 mt-4">
         <p className="text-lg font-bold text-white">Tag :</p>
         <p className="px-4 font-bold w-fit bg-primary-dark">{tag}</p>
       </div>

@@ -16,9 +16,8 @@ const UserPost = ({ userId }) => {
     }
     getPosts();
   }, [PostRef, toggle]);
-  console.log(userId);
   return (
-    <div>
+    <>
       {posts
         .filter((data) => data.author.id === userId)
         .map((data) => {
@@ -34,7 +33,10 @@ const UserPost = ({ userId }) => {
           }
 
           return (
-            <div className="flex flex-wrap my-4 flex-col gap-2 border-[2px] p-4 border-primary-dark max-w-[350px] overflow-hidden">
+            <div
+              key={id}
+              className="flex flex-col gap-3 border-[2px] p-4 border-primary-dark max-w-[350px] overflow-hidden"
+            >
               <Link
                 to={`/post/${id}`}
                 className="text-lg font-medium font-Poppin text-primary-dark"
@@ -55,7 +57,7 @@ const UserPost = ({ userId }) => {
             </div>
           );
         })}
-    </div>
+    </>
   );
 };
 

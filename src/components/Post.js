@@ -6,7 +6,7 @@ const Post = ({ data }) => {
   const turcdesc = description.substring(0, 100) + "....";
 
   return (
-    <div className="flex flex-col gap-2 border-[2px] p-4 border-primary-dark max-w-[350px] overflow-hidden">
+    <div className="flex flex-col gap-3 border-[2px] p-4 border-primary-dark max-w-[350px] overflow-hidden">
       <Link
         to={`/post/${id}`}
         className="text-lg font-medium font-Poppin text-primary-dark"

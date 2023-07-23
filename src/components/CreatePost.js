@@ -1,6 +1,6 @@
+import React from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase/config";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineSend } from "react-icons/ai";
 
@@ -70,9 +70,13 @@ const CreatePost = () => {
             required
           >
             <option></option>
-            <option className="p-2 text-white bg-black" value="game">
-              Game
-            </option>
+            <option value="song">News</option>
+            <option value="song">Business</option>
+            <option value="song">Education</option>
+            <option value="song">Movie</option>
+            <option value="song">Programming</option>
+            <option value="song">Sports</option>
+            <option value="game">Game</option>
             <option value="song">Song</option>
           </select>
         </div>
