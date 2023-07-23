@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 
 const Post = ({ data }) => {
   const { id, title, description, author } = data;
-  const turndesc = description.substring(0, 100) + "....";
+  const turcdesc = description.substring(0, 100) + "....";
+
   return (
-    <div className="flex flex-col gap-2 border-[2px] p-4 border-primary-dark max-w-[350px]">
+    <div className="flex flex-col gap-2 border-[2px] p-4 border-primary-dark max-w-[350px] overflow-hidden">
       <Link
         to={`/post/${id}`}
         className="text-lg font-medium font-Poppin text-primary-dark"
       >
         {title}
       </Link>
-      <p className="text-sm text-white">{turndesc}</p>
-      <div>
+      <p className="text-sm text-white">{turcdesc}</p>
+      <div className="flex items-center justify-between">
         <p className="p-1 text-xs font-semibold rounded-md bg-primary-light w-fit">
           {author.name}
         </p>

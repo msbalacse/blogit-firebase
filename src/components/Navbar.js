@@ -11,7 +11,7 @@ const Navbar = () => {
     JSON.parse(localStorage.getItem("isAuth")) || false
   );
 
-  function handleLogin() {
+  async function handleLogin() {
     signInWithPopup(auth, provider).then((result) => {
       console.log(result);
       setIsAuth(true);

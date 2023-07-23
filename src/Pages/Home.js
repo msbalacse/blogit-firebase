@@ -12,7 +12,7 @@ const Home = () => {
     async function getPosts() {
       const data = await getDocs(PostRef.current);
       setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log("---");
     }
     getPosts();
   }, [PostRef]);
