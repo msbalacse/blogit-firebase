@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex flex-row flex-wrap items-center justify-between w-full gap-4 p-4 font-Victor">
+    <nav className="flex flex-row flex-wrap items-center justify-between w-full gap-4 p-8 mb-8 font-Victor">
       <div className="logo">
         <h1 className="text-xl font-bold text-primary-dark">
           <NavLink to="/">
