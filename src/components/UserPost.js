@@ -39,7 +39,7 @@ const UserPost = ({ userId }) => {
             >
               <Link
                 to={`/post/${id}`}
-                className="text-lg font-medium font-Poppin text-primary-dark"
+                className="text-lg font-medium font-Poppin text-primary-dark hover:underline"
               >
                 {title}
               </Link>

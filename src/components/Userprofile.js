@@ -25,7 +25,7 @@ const Userprofile = () => {
           </p>
         </div>
       </div>
-      <div className="grid justify-center w-full grid-cols-1 gap-4 p-8 sm:grid-cols-2 place-content-center md:grid-cols-3">
+      <div className="grid justify-center w-full grid-cols-1 gap-4 p-4 sm:grid-cols-2 place-content-center md:grid-cols-3">
         <UserPost key={userId} userId={userId} />
       </div>
     </div>

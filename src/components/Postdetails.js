@@ -37,20 +37,25 @@ const SinglePost = ({ data }) => {
   const { title, description, author, tag, date } = data;
   return (
     <div className="p-4">
-      <div className="p-2 text-2xl font-extrabold bg-white border-l-8 border-primary-dark">
-        <h1 className="bg-white">{title}</h1>
+      <div className="p-2 text-xl font-extrabold text-white border border-l-8 border-primary-dark border-l-primary-dark">
+        <h1 className="">{title}</h1>
       </div>
-      <p className="p-4 text-base text-left text-white">{description}</p>
-      <div className="flex gap-2 mt-4">
-        <p className="text-lg font-bold text-white">Tag :</p>
-        <p className="px-4 font-bold w-fit bg-primary-dark">{tag}</p>
+      <div className="p-2 ">
+        <p className="my-4 text-base text-left text-white">{description}</p>
+        <div className="flex items-center gap-2 mt-8">
+          <p className="font-bold text-white text-bsse">Tag :</p>
+          <p className="px-2 text-sm font-bold rounded-full w-fit bg-primary-dark ">
+            {tag}
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <p className="text-base font-bold text-white">Owner :</p>
+          <p className="text-sm font-bold w-fit text-primary-dark">
+            {author.name}
+          </p>
+        </div>
+        <p className="px-2 my-2 text-xs font-medium bg-white w-fit">{date}</p>
       </div>
-      <div className="flex items-center gap-2">
-        <p className="text-lg font-bold text-white">Owner :</p>
-        <p className="font-bold w-fit text-primary-dark">{author.name}</p>
-      </div>
-
-      <p className="px-4 my-2 bg-white rounded-full w-fit">{date}</p>
     </div>
   );
 };
