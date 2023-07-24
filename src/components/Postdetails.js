@@ -42,7 +42,7 @@ const SinglePost = ({ data }) => {
       </div>
       <div className="p-2 ">
         <p className="my-4 text-base text-left text-white">{description}</p>
-        <div className="flex items-center gap-2 mt-8">
+        <div className="flex items-center gap-2 mt-16">
           <p className="font-bold text-white text-bsse">Tag :</p>
           <p className="px-2 text-sm font-bold rounded-full w-fit bg-primary-dark ">
             {tag}
