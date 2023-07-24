@@ -25,6 +25,7 @@ const SearchBox = () => {
         className="text-xs text-white focus:outline-none"
         name="search"
         type="text"
+        placeholder="Search..."
         required
       />
       <button type="submit">
