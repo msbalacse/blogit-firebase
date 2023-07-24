@@ -11,7 +11,7 @@ const SearchBox = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSearch(e.target.search.value);
+    setSearch(e.target.search.value.toLowerCase());
     e.target.search.value = "";
     navigation("/search");
   };
