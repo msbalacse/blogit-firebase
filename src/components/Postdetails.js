@@ -38,14 +38,14 @@ const SinglePost = ({ data }) => {
   return (
     <div className="p-4">
       <div className="p-2 text-xl font-extrabold text-white border border-l-8 border-primary-dark border-l-primary-dark">
-        <h1 className="">{title}</h1>
+        <h1 className="">{title.charAt(0).toUpperCase() + title.slice(1)}</h1>
       </div>
       <div className="p-2 ">
         <p className="my-4 text-base text-left text-white">{description}</p>
         <div className="flex items-center gap-2 mt-16">
           <p className="font-bold text-white text-bsse">Tag :</p>
           <p className="px-2 text-sm font-bold rounded-full w-fit bg-primary-dark ">
-            {tag}
+            {tag.charAt(0).toUpperCase() + tag.slice(1)}
           </p>
         </div>
         <div className="flex items-center gap-2">

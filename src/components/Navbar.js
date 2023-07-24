@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { auth, provider } from "../firebase/config";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { AiOutlineGoogle, AiOutlinePlus } from "react-icons/ai";
+import SearchBox from "./SearchBox";
 
 const Navbar = () => {
   const navigation = useNavigate();
@@ -42,6 +43,7 @@ const Navbar = () => {
           </NavLink>
         </h1>
       </div>
+      <SearchBox />
       <div className="flex items-center gap-2 text-sm text-white sm:gap-4">
         <NavLink
           className={`${PathMathRoute("/") && "border-b-2 border-white"}`}

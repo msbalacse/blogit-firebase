@@ -11,7 +11,7 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const document = {
-      title: e.target.title.value,
+      title: e.target.title.value.toLowerCase(),
       description: e.target.description.value,
       author: {
         name: auth.currentUser.displayName,
@@ -70,14 +70,15 @@ const CreatePost = () => {
             required
           >
             <option></option>
-            <option value="song">News</option>
-            <option value="song">Business</option>
-            <option value="song">Education</option>
-            <option value="song">Movie</option>
-            <option value="song">Programming</option>
-            <option value="song">Sports</option>
+            <option value="news">News</option>
+            <option value="business">Business</option>
+            <option value="education">Education</option>
+            <option value="movie">Movie</option>
+            <option value="programming">Programming</option>
+            <option value="sports">Sports</option>
             <option value="game">Game</option>
             <option value="song">Song</option>
+            <option value="others">Others</option>
           </select>
         </div>
         <div className="flex items-center gap-1 p-2 my-4 text-sm bg-white rounded-full cursor-pointer w-fit">

@@ -29,7 +29,6 @@ const UserPost = ({ userId }) => {
             const document = doc(db, "posts", id);
             await deleteDoc(document);
             setToggle(!toggle);
-            console.log(title);
           }
 
           return (
@@ -41,7 +40,7 @@ const UserPost = ({ userId }) => {
                 to={`/post/${id}`}
                 className="text-lg font-medium font-Poppin text-primary-dark group-hover:underline"
               >
-                {title}
+                {title.charAt(0).toUpperCase() + title.slice(1)}
               </Link>
               <p className="text-sm text-white">{turcdesc}</p>
               <div className="flex items-center gap-4">

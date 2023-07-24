@@ -11,7 +11,7 @@ const Post = ({ data }) => {
         to={`/post/${id}`}
         className="text-lg font-medium font-Poppin text-primary-dark group-hover:underline"
       >
-        {title}
+        {title.charAt(0).toUpperCase() + title.slice(1)}
       </Link>
       <p className="text-sm text-white">{turcdesc}</p>
       <div className="flex items-center justify-between">
