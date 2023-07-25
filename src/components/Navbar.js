@@ -3,7 +3,10 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { auth, provider } from "../firebase/config";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { AiOutlineGoogle, AiOutlinePlus } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import SearchBox from "./SearchBox";
+
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const navigation = useNavigate();
@@ -34,7 +37,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex flex-row flex-wrap items-center justify-between w-full gap-4 p-8 mb-8 font-Victor">
+    <motion.nav
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        duration: 1,
+      }}
+      className="flex flex-row flex-wrap items-center justify-around sm:justify-between w-full gap-4 p-8 mb-4 font-Victor"
+    >
       <div className="logo">
         <h1 className="text-xl font-bold text-primary-dark">
           <NavLink to="/">
@@ -44,7 +54,7 @@ const Navbar = () => {
         </h1>
       </div>
       <SearchBox />
-      <div className="flex items-center gap-2 text-sm text-white sm:gap-4">
+      <div className="flex items-center justify-evenly gap-4 w-[300px] text-sm text-white sm:gap-4">
         <NavLink
           className={`${PathMathRoute("/") && "border-b-2 border-white"}`}
           to="/"
@@ -64,16 +74,11 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               className={`${
-                PathMathRoute("/user-profile") && "border-b-2 border-white"
+                PathMathRoute("/user-profile") && "text-primary-dark"
               }`}
               to="/user-profile"
             >
-              {/* <img
-                className="rounded-full w-[30px]"
-                src={auth.currentUser.photoURL}
-                alt={auth.currentUser.photoURL}
-              /> */}
-              Profile
+              <CgProfile size={"25px"} />
             </NavLink>
             <button
               className="p-2 text-xs text-white rounded-lg bg-secondary-dark"
@@ -95,7 +100,7 @@ const Navbar = () => {
           </button>
         )}
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

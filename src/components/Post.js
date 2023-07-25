@@ -1,15 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Post = ({ data }) => {
   const { id, title, description, author } = data;
   const turcdesc = description.substring(0, 100) + "....";
 
+  const bounce = {
+    initial: {
+      y: 20,
+      scale: 0.9,
+    },
+    animate: {
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.1,
+      },
+    },
+  };
+
   return (
-    <div className="flex flex-col gap-3 border-[2px] p-4 border-primary-dark max-w-[300px] overflow-hidden hover:shadow-[5px_5px_0px_0px_rgba(255,255,255)] duration-300 hover:scale-105 group">
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={bounce}
+      className="flex flex-col gap-4 border-[4px] p-4 border-primary-dark max-w-[300px] overflow-hidden shadow-[5px_5px_0px_0px_rgba(255,255,255)] duration-300 hover:scale-105 group"
+    >
       <Link
         to={`/post/${id}`}
-        className="text-lg font-medium font-Poppin text-primary-dark group-hover:underline"
+        className="text-xl font-medium font-Poppin text-primary-dark group-hover:underline"
       >
         {title.charAt(0).toUpperCase() + title.slice(1)}
       </Link>
@@ -19,7 +39,7 @@ const Post = ({ data }) => {
           {author.name}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

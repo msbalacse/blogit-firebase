@@ -3,6 +3,7 @@ import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { db, auth } from "../firebase/config";
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const UserPost = ({ userId }) => {
   const [posts, setPosts] = useState([]);
@@ -31,10 +32,27 @@ const UserPost = ({ userId }) => {
             setToggle(!toggle);
           }
 
+          const bounce = {
+            initial: {
+              y: 20,
+              scale: 0.9,
+            },
+            animate: {
+              y: 0,
+              scale: 1,
+              transition: {
+                duration: 0.1,
+              },
+            },
+          };
+
           return (
-            <div
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={bounce}
               key={id}
-              className="flex flex-col gap-3 border-[2px] p-4 border-primary-dark max-w-[350px] overflow-hidden hover:shadow-[5px_5px_0px_0px_rgba(255,255,255)] duration-300 hover:scale-105 group"
+              className="flex flex-col gap-4 border-[4px] p-4 border-primary-dark max-w-[300px] overflow-hidden shadow-[5px_5px_0px_0px_rgba(255,255,255)] duration-300 hover:scale-105 group"
             >
               <Link
                 to={`/post/${id}`}
@@ -53,7 +71,7 @@ const UserPost = ({ userId }) => {
                   </button>
                 )}
               </div>
-            </div>
+            </motion.div>
           );
         })}
     </>

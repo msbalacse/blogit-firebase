@@ -3,6 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase/config";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineSend } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const CreatePost = () => {
   const date = new Date();
@@ -23,13 +24,35 @@ const CreatePost = () => {
     await addDoc(PostRef, document);
     navigation("/");
   };
+
+  const animate = {
+    initial: {
+      x: -100,
+      opacity: 0,
+      scale: 0.7,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <div className="w-full md:flex md:justify-center">
       <form
         className="flex flex-col gap-4 p-4 sm:w-full md:w-1/2"
         onSubmit={handleSubmit}
       >
-        <div className="flex flex-col gap-2">
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={animate}
+          className="flex flex-col gap-2"
+        >
           <label
             className="text-lg font-bold text-primary-light "
             htmlFor="title"
@@ -42,8 +65,13 @@ const CreatePost = () => {
             name="title"
             required
           />
-        </div>
-        <div className="flex flex-col gap-2">
+        </motion.div>
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={animate}
+          className="flex flex-col gap-2"
+        >
           <label
             className="text-lg font-bold text-primary-light"
             htmlFor="description"
@@ -56,8 +84,13 @@ const CreatePost = () => {
             name="description"
             required
           />
-        </div>
-        <div className="flex flex-col gap-2">
+        </motion.div>
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={animate}
+          className="flex flex-col gap-2"
+        >
           <label
             className="text-lg font-bold text-primary-light"
             htmlFor="description"
@@ -80,8 +113,16 @@ const CreatePost = () => {
             <option value="song">Song</option>
             <option value="others">Others</option>
           </select>
-        </div>
-        <div className="flex items-center gap-1 p-2 my-4 text-sm bg-white rounded-full cursor-pointer w-fit">
+        </motion.div>
+        <motion.div
+          initial={{
+            y: -50,
+          }}
+          animate={{
+            y: 0,
+          }}
+          className="flex items-center gap-1 p-2 my-4 text-sm bg-white rounded-full cursor-pointer w-fit"
+        >
           <AiOutlineSend
             style={{ color: "black", background: "transparent" }}
           />
@@ -90,7 +131,7 @@ const CreatePost = () => {
             type="submit"
             value="Post"
           />
-        </div>
+        </motion.div>
       </form>
     </div>
   );

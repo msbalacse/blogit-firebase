@@ -16,7 +16,7 @@ import SearchResults from "./components/SearchResults";
 const App = () => {
   // context states
   const [posts, setPosts] = useState([]);
-  const [search, setSearch] = useState("song");
+  const [search, setSearch] = useState("");
 
   return (
     <ApiContext.Provider value={{ posts, setPosts, search, setSearch }}>

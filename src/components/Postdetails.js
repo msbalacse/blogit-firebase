@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useParams } from "react-router-dom";
 import { useTitle } from "../hooks/useTitle";
+import { motion } from "framer-motion";
 
 const Postdetails = () => {
   const { id } = useParams();
@@ -36,10 +37,26 @@ const SinglePost = ({ data }) => {
 
   const { title, description, author, tag, date } = data;
   return (
-    <div className="p-4">
-      <div className="p-2 text-xl font-extrabold text-white border border-l-8 border-primary-dark border-l-primary-dark">
+    <motion.div
+      initial={{
+        y: 15,
+      }}
+      animate={{
+        y: 0,
+      }}
+      className="p-4"
+    >
+      <motion.div
+        initial={{
+          x: -50,
+        }}
+        animate={{
+          x: 0,
+        }}
+        className="p-2 text-xl font-extrabold text-white border border-l-8 border-primary-dark border-l-primary-dark"
+      >
         <h1 className="">{title.charAt(0).toUpperCase() + title.slice(1)}</h1>
-      </div>
+      </motion.div>
       <div className="p-2 ">
         <p className="my-4 text-base text-left text-white">{description}</p>
         <div className="flex items-center gap-2 mt-16">
@@ -56,6 +73,6 @@ const SinglePost = ({ data }) => {
         </div>
         <p className="px-2 my-2 text-xs font-medium bg-white w-fit">{date}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
