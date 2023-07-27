@@ -4,6 +4,7 @@ import { db } from "../firebase/config";
 import Post from "../components/Post";
 import { useTitle } from "../hooks/useTitle";
 import { ApiContext } from "../context/ApiContext";
+import SkeletonLoading from "../components/SkeletonLoading";
 const Home = () => {
   const { posts, setPosts } = useContext(ApiContext);
 
@@ -20,9 +21,9 @@ const Home = () => {
   }, [PostRef, setPosts]);
   return (
     <div className="grid justify-center w-full grid-cols-1 gap-4 p-4 sm:grid-cols-2 place-content-center md:grid-cols-3">
-      {posts.map((data) => (
-        <Post key={data.id} data={data} />
-      ))}
+      {posts.map((data) =>
+        data ? <Post key={data.id} data={data} /> : <SkeletonLoading />
+      )}
     </div>
   );
 };
