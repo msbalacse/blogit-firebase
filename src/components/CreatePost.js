@@ -64,6 +64,7 @@ const CreatePost = () => {
             type="text"
             name="title"
             required
+            autoFocus
           />
         </motion.div>
         <motion.div
