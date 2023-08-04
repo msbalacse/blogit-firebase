@@ -20,7 +20,7 @@ const Home = () => {
     getPosts();
   }, [PostRef, setPosts]);
   return (
-    <div className="grid justify-center w-full grid-cols-1 gap-4 p-4 sm:grid-cols-2 place-content-center md:grid-cols-3">
+    <div className="flex flex-wrap w-full  gap-8 p-4  place-content-center md:grid-cols-3">
       {posts.map((data) =>
         data ? <Post key={data.id} data={data} /> : <SkeletonLoading />
       )}

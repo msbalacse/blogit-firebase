@@ -25,7 +25,7 @@ const Post = ({ data }) => {
       initial="initial"
       animate="animate"
       variants={bounce}
-      className="flex flex-col gap-4 border-[4px] p-4 border-primary-dark max-w-[300px] overflow-hidden shadow-[5px_5px_0px_0px_rgba(255,255,255)] duration-300 hover:scale-105 group"
+      className="flex flex-col gap-4 border-[4px] p-4 border-primary-dark w-full overflow-hidden shadow-[5px_5px_0px_0px_rgba(255,255,255)] duration-300 hover:scale-105 group"
     >
       <Link
         to={`/post/${id}`}
