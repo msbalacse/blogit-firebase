@@ -2,7 +2,7 @@ import Skeleton from "react-loading-skeleton";
 
 const SkeletonLoading = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col w-full gap-4">
       <h1 className="text-xl font-medium">
         <Skeleton />
       </h1>

@@ -20,7 +20,7 @@ const Home = () => {
     getPosts();
   }, [PostRef, setPosts]);
   return (
-    <div className="flex flex-wrap w-full  gap-8 p-4  place-content-center md:grid-cols-3">
+    <div className="flex flex-wrap w-full gap-8 p-4 ">
       {posts.map((data) =>
         data ? <Post key={data.id} data={data} /> : <SkeletonLoading />
       )}
